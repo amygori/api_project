@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>github repo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link rel="stylesheet" href="styles/main.css">
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+    <!-- insert avatar -->
+    <div class="left"></div>
+    <div class="right"></div>
+     
+
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/user.js"></script>
+        <script src="scripts/repos.js"></script>
+        <!-- make the image show up, jQuery method-->
+        <!-- <script>
+         $(".left").append("<img src='" +user.avatar_url+ "'>");
+        </script> -->
+        
+        <!-- underscore template for left div -->
+        <script type="text/template" id="profile">     
+        <img src="<%= avatar_url %>">
+        <h1><%= login %></h1>
+        <h2><i class="fa fa-clock-o"></i><span> Joined on <%= created_at.substring(0,10) %></span></h2>
+        <p>Followers <%= followers %></p>
+        <p>Following <%= following %></p>
+        <p><a href="<%= starred_url %>">Starred </a></p>
+        </script>
+
+        <!-- populate the template-->
+        <script>
+        profileTpl = $('#profile').html();
+        $(".left").append(_.template(profileTpl, user));
+        </script> 
+
+        <!-- underscore template for right div-->
+        <script type="text/template" id="projects">
+        <img src="repo.png"><h2><%= name %></h2>
+        <h3>Last updated <%= updated_at %></p>
+        <p><%= language %></p>
+        <p><%= stargazers_count %></p>
+        <p><%= forks_count %></p>
+        </script>
+
+</body>
+</html>

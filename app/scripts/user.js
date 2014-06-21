@@ -1,0 +1,26 @@
+var user=
+{
+  "login": "amygori",
+  "id": 7226152,
+  "avatar_url": "https://avatars.githubusercontent.com/u/7226152?",
+  "gravatar_id": "805b74740b27c15834ad7b92850ab20f",
+  "url": "https://api.github.com/users/amygori",
+  "html_url": "https://github.com/amygori",
+  "followers_url": "https://api.github.com/users/amygori/followers",
+  "following_url": "https://api.github.com/users/amygori/following{/other_user}",
+  "gists_url": "https://api.github.com/users/amygori/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/amygori/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/amygori/subscriptions",
+  "organizations_url": "https://api.github.com/users/amygori/orgs",
+  "repos_url": "https://api.github.com/users/amygori/repos",
+  "events_url": "https://api.github.com/users/amygori/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/amygori/received_events",
+  "type": "User",
+  "site_admin": false,
+  "public_repos": 5,
+  "public_gists": 0,
+  "followers": 3,
+  "following": 3,
+  "created_at": "2014-04-08T13:53:51Z",
+  "updated_at": "2014-06-19T02:50:46Z"
+};

@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
        
         <link rel="stylesheet" href="styles/main.css">
-        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
         <script src="bower_components/modernizr/modernizr.js"></script>
         
     </head>
@@ -18,9 +18,16 @@
 
 
     <!-- insert avatar -->
-    <div class="left"></div>
-    <div class="right"></div>
-    <h3>Organizations</h3>
+    <div class="left">
+    </div>
+    <div class="left2">
+        <h3>Organizations</h3>
+        <img src="images/IYSB.png">
+    </div>
+    <div class="right">
+        <span class="mega-octicon octicon-repo"></span>
+    </div>
+    
 
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
@@ -36,7 +43,8 @@
         <script type="text/template" id="profile">     
         <img src="<%= avatar_url %>">
         <h1><%= login %></h1>
-        <h2><i class="fa fa-clock-o"></i><span> Joined on <%= created_at.substring(0,10) %></span></h2>
+        <h2><span class="octicon octicon-clock"></span>
+            Joined on <%= created_at.substring(0,10) %></h2>
         <p>Followers <%= followers %></p>
         <p>Following <%= following %></p>
         <p><a href="<%= starred_url %>">Starred </a></p>
@@ -50,14 +58,33 @@
 
         <!-- underscore template for right div-->
         <script type="text/template" id="projects">
-        <img src="repo.png"><h2><%= name %></h2>
-        <h3>Last updated <%= updated_at %></p>
-        <p><%= language %></p>
-        <p><%= stargazers_count %></p>
-        <p><%= forks_count %></p>
+        <ul>
+        <% for (var i=0; i<repos.length; i++) { %>
+            <% var repo = repos[i]; %>
+                <li>
+                <span class="mega-octicon octicon-repo"></span>
+                <%= repo.name %>
+                </li>
+        <% } %>
+        </ul>
         </script>
 
-        <!-- populate the template -->
+        <!-- assembling the data within the template -->
+        <script type="text/template">
+            //assign html content to variable
+            var reposContent=$('#projects').html();
+            //populate the template
+            var reposTpl=_.template(reposContent, repos);
+            //target the part of the page where the template will render
+            $(".right").html(reposTpl);
+        
+        </script>
+
+        
+        <!-- <h3>Last updated <%= updated_at %></p>
+        <p><%= language %></p>
+        <p><%= stargazers_count %></p>
+        <p><%= forks_count %></p> -->
 
 
 </body>

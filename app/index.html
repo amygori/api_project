@@ -24,9 +24,7 @@
         <h3>Organizations</h3>
         <img src="images/IYSB.png">
     </div>
-    <div class="right">
-        <span class="mega-octicon octicon-repo"></span>
-    </div>
+    
     
 
         <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -56,14 +54,15 @@
         $(".left").append(_.template(profileTpl, user));
         </script> 
 
+<div class="right">
+    </div>
         <!-- underscore template for right div-->
         <script type="text/template" id="projects">
         <ul>
-        <% for (var i=0; i<repos.length; i++) { %>
+        <% for(var i=0; i<repos.length; i++) { %>
             <% var repo = repos[i]; %>
-                <li>
-                <span class="mega-octicon octicon-repo"></span>
-                <%= repo.name %>
+                <li><%= repo.name %>
+                //<span class="mega-octicon octicon-repo"></span>
                 </li>
         <% } %>
         </ul>
@@ -71,12 +70,11 @@
 
         <!-- assembling the data within the template -->
         <script type="text/template">
-            //assign html content to variable
-            var reposContent=$('#projects').html();
+           
             //populate the template
-            var reposTpl=_.template(reposContent, repos);
+            reposTpl=$('#projects').html();
             //target the part of the page where the template will render
-            $(".right").html(reposTpl);
+            $(".right").append(_.template(reposTpl, repos));
         
         </script>
 

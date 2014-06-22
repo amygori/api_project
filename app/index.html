@@ -49,7 +49,7 @@
         </script>
 
         <!-- populate the template-->
-        <script>
+        <script type="text/javascript">
         profileTpl = $('#profile').html();
         $(".left").append(_.template(profileTpl, user));
         </script> 
@@ -61,20 +61,23 @@
         <ul>
         <% for(var i=0; i<repos.length; i++) { %>
             <% var repo = repos[i]; %>
-                <li><%= repo.name %>
-                //<span class="mega-octicon octicon-repo"></span>
+                <li><span class="mega-octicon octicon-repo"></span>
+                <%= repo.name %> 
+                <ul>
+                <li>Last updated <%= repo.updated_at.substring(0,10) %></li>
+                </ul>
                 </li>
         <% } %>
         </ul>
         </script>
 
         <!-- assembling the data within the template -->
-        <script type="text/template">
+        <script type="text/javascript">
            
-            //populate the template
-            reposTpl=$('#projects').html();
-            //target the part of the page where the template will render
-            $(".right").append(_.template(reposTpl, repos));
+            //populate the template 
+            var reposContent = $('#projects').html();
+            var reposTpl = _.template(reposContent, {repos:repos});
+            $('.right').html(reposTpl);
         
         </script>
 

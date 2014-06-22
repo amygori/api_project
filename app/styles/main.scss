@@ -1,6 +1,6 @@
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     color: #333;
 }
 
@@ -8,7 +8,7 @@ body {
     margin: 10px auto 0 auto;
     width: 230px;
     border-radius: 6px;
-    padding: 10px;
+    padding: 10px 100px 0 0;
     float: left;
     font-family: Helvetica, sans-serif;
     color: #666;
@@ -57,12 +57,30 @@ body {
 
 }
 
-.right {
-    float: right;
-    width: 730px;
+.right {   
+    width: 750px;
     height: auto;
-    margin: 0px;
-    clear: right;
+    margin: 0 0 0 200px;
+    padding: 50px 0 0 100px;
+    ul li {
+        list-style: none;
+        padding: 25px;
+        color: #4083C4;
+        font-size: 20px;
+        font-weight: bold;
+        border-bottom: solid 1px lightgray;
+        span {
+            padding: 0 10px 0 0;
+            color:#BBB;
+        }
+        li {
+            color: #999;
+            font-size: 12px;
+            font-weight: normal;
+            border: none;
+            padding: 10px 0 0 20px;
+        }
+    }
 }
 
 

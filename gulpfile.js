@@ -26,7 +26,7 @@ gulp.task('scripts', function () {
 
 gulp.task('html', ['styles', 'scripts'], function () {
     var jsFilter = $.filter('**/*.js');
-    var cssFilter = $.filter('**/*.css');
+   var cssFilter = $.filter('**/*.css');
 
     return gulp.src('app/*.html')
         .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
@@ -131,3 +131,11 @@ gulp.task('watch', ['connect', 'serve'], function () {
     gulp.watch('app/images/**/*', ['images']);
     gulp.watch('bower.json', ['wiredep']);
 });
+//gulp plumber to keep rubySass watch from crashing
+/*var plumber = require('gulp-plumber');
+var coffee = require('gulp-coffee');
+
+gulp.src('./src/*.ext')
+    .pipe(plumber())
+    .pipe(coffee())
+    .pipe(gulp.dest('./dist'));*/

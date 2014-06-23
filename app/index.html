@@ -43,9 +43,9 @@
         <h1><%= login %></h1>
         <h2><span class="octicon octicon-clock"></span>
             Joined on <%= created_at.substring(0,10) %></h2>
-        <p>Followers <%= followers %></p>
-        <p>Following <%= following %></p>
-        <p><a href="<%= starred_url %>">Starred </a></p>
+        <p class="peeps"> <span class="num"><%= followers %></span>Followers</p>
+        <p class="peeps"><a href="<%= starred_url %>">Starred </a></p>
+        <p class="peeps"> <span class="num"><%= following %></span>Following</p>
         </script>
 
         <!-- populate the template-->
@@ -62,8 +62,8 @@
         <% for(var i=0; i<repos.length; i++) { %>
             <% var repo = repos[i]; %>
                 <li><span class="mega-octicon octicon-repo"></span>
-                <%= repo.name %> 
-                <li class="updated">Last updated <%= repo.updated_at.substring(0,10) %></li>
+                <%= repo.name %>
+                <p><span class="updated">Last updated <%= repo.updated_at.substring(0,10) %></span></p>
                 <ul class="stats">
                 <li><%= repo.language %></li>
                 <li> <span class="octicon octicon-star"></span><%=repo.stargazers_count %></li>

@@ -43,7 +43,7 @@ body {
     float: left;
     clear: left;
     margin: 0 0 0 10px;
-    border-top: solid 1px lightgray;
+    border-top: solid 1px #EEE;
     width: 230px;
     h3 {
         font-size: 16px;
@@ -61,23 +61,28 @@ body {
     padding: 50px 0 0 100px;
     ul li {
         list-style: none;
-        padding: 25px;
+        padding: 20px 25px 0 0;
         color: #4083C4;
         font-size: 20px;
         font-weight: bold;
-        border-top: solid 1px lightgray;
+        border-top: solid 1px #EEE;
         span {
             padding: 0 10px 0 0;
             color:#BBB;
         }
-    ul li.updated {
-        color: #999;
-        font-size: 12px;
-        font-weight: normal;
-        border: none;
-        padding: 10px 0 0 20px;
+        p {
+            margin: 5px 0 0 40px;
+        }
     }
 }
+
+span.updated {
+            color: #999;
+            font-size: 12px;
+            font-weight: normal;
+            border: none;
+            padding: 10px 0 0 20px;
+        }
 ul.stats {
     border: none;
 }
@@ -91,4 +96,18 @@ ul.stats li  {
        color:#888;
     }
 } 
+
+p.peeps {
+    font-size: 12px;
+    display: inline-block;
+    padding: 10px;
+    span.num {
+        font-size: 24px;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        border-bottom: none;
+    }
+
+}
 

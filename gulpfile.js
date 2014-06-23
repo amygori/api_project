@@ -131,11 +131,3 @@ gulp.task('watch', ['connect', 'serve'], function () {
     gulp.watch('app/images/**/*', ['images']);
     gulp.watch('bower.json', ['wiredep']);
 });
-//gulp plumber to keep rubySass watch from crashing
-/*var plumber = require('gulp-plumber');
-var coffee = require('gulp-coffee');
-
-gulp.src('./src/*.ext')
-    .pipe(plumber())
-    .pipe(coffee())
-    .pipe(gulp.dest('./dist'));*/

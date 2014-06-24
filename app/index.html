@@ -2,13 +2,20 @@
 <html class="no-js">
     <head>
         <meta charset="utf-8">
-        <title>github repo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-       
+        <title>github repo</title>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
-        <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
         
     </head>
     <body>
@@ -25,14 +32,18 @@
         <img src="images/IYSB.png">
     </div>
     
-    
-
-        <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <script src="scripts/apiToken.js"></script>
         <script src="scripts/main.js"></script>
         <script src="scripts/user.js"></script>
         <script src="scripts/repos.js"></script>
-        <!-- make the image show up, jQuery method-->
+    
         <!-- <script>
          $(".left").append("<img src='" +user.avatar_url+ "'>");
         </script> -->
@@ -40,7 +51,7 @@
         <!-- underscore template for left div -->
         <script type="text/template" id="profile">     
         <img src="<%= avatar_url %>">
-        <h1><%= login %></h1>
+        <h1><%= json.userData.login %></h1>
         <h2><span class="octicon octicon-clock"></span>
             Joined on <%= created_at.substring(0,10) %></h2>
         <p class="peeps"> <span class="num"><%= followers %></span>Followers</p>
@@ -48,11 +59,22 @@
         <p class="peeps"> <span class="num"><%= following %></span>Following</p>
         </script>
 
-        <!-- populate the template-->
-        <script type="text/javascript">
+        <!-- here's how I populated the template this weekend-->
+        <!-- <script type="text/javascript">
         profileTpl = $('#profile').html();
         $(".left").append(_.template(profileTpl, user));
-        </script> 
+        </script>  -->
+        <!-- populate the template using $getJSON: this doesn't work but I don't know why-->
+        <script type="text/javascript">
+        var userAPI = "https://api.github.com/users/amygori?client_id="+token;
+
+        var profileTpl = $('#profile').html();
+        $.getJSON(userAPI).done(function (userData) {
+            $('.left').html(_.template(profileTpl, {users:userData}));
+        }
+        });
+
+        </script>
 
 <div class="right">
     </div>
